@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background-color: #ffffff;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+:root {
+  --sanjivini-blue: #194656;
+  --sanjivini-red: #AD3048;
+  --sanjivini-yellow: #FBB03B;
+  --sanjivini-teal: #56B7C3;
+}
+/* Scrollbar ko sundar banane ke liye */
+.overflow-y-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.overflow-y-scroll::-webkit-scrollbar-thumb {
+  background: #AD3048; /* Maroon color scrollbar */
+  border-radius: 10px;
+}
+
+.overflow-y-scroll::-webkit-scrollbar-thumb:hover {
+  background: #194656;
+}

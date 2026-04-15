@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import icuImage from "../images/facilities/icu.jpg";
 import nicuImage from "../images/facilities/nicu.jpg";
-import operationTheatreImage from "../images/facilities/operation-theatre.jpg";
+import operationTheatreImage from "../images/facilities/main.webp";
 import "./facilitiesAndServices.css";
 
 export default function FacilitiesServicesPage() {
@@ -121,19 +122,29 @@ export default function FacilitiesServicesPage() {
   return (
     <main className="facilities-page">
       <section className="facilities-hero">
-        <div className="hero-overlay" />
-        <div className="hero-content">
-          <div className="hero-icon">❤️</div>
-          <h1>Facilities & Services</h1>
-          <p>
-            Sanjivini Hospital & Research Centre has all the super-specialty
-            departments and is equipped with state-of-the-art equipment &
-            medicinal help.
-          </p>
+        <div className="facilities-hero-inner" style={{ backgroundImage: `url('${operationTheatreImage}')` }}>
+          <div className="facilities-hero-copy">
+            <p className="facilities-hero-kicker">Sanjivini Hospitals</p>
+            <h1>We let nothing come between you and quality care.</h1>
+            <p className="facilities-hero-text">
+              Focus on what matters while we take care of your quality of life.
+              Explore our facilities, critical care units, and advanced
+              diagnostic services.
+            </p>
+
+            <div className="facilities-hero-actions">
+              <Link to="/contact-us" className="facilities-hero-button">
+                Contact Us
+              </Link>
+              <a href="#facility-list" className="facilities-hero-button facilities-hero-button-secondary">
+                Download Factsheet
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="facilities-intro">
+      <section className="facilities-intro" id="facility-list">
         <p>
           Our infrastructure is designed around patient safety and clinical
           excellence, with every facility meeting international standards and

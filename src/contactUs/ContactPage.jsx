@@ -1,79 +1,165 @@
+import immediateHelpImage from '../images/assets/immidiate help.png';
+
 export default function ContactPage() {
   return (
     <main className="contact-page">
-      <section className="contact-intro">
-        <h1>Get In Touch</h1>
-        <p>
-          Sanjivini Super Speciality Hospital is always ready to cater to all
-          your acute, critical and emergency needs. For enquiries,
-          appointments, emergency or any other assistance, please reach us
-          freely. We would love to serve you with the best healthcare services.
-        </p>
+      {/* Contact Hero Section */}
+      <section className="contact-hero">
+        <div className="contact-hero-inner">
+          <div className="contact-hero-copy">
+            <p className="contact-hero-kicker">Sanjivini Hospitals</p>
+            <h1>We're Here to Help You</h1>
+            <p className="contact-hero-text">
+              Reach out to us anytime. Our compassionate team is ready to assist you with 
+              emergency care, appointments, or any questions about our services.
+            </p>
+            <p className="contact-hero-highlight">
+              <strong>24/7 Emergency Support Available</strong>
+            </p>
+          </div>
 
-        <div className="contact-badges">
-          <span>24x7 Emergency</span>
-          <span>Trauma Ready Teams</span>
-          <span>Instant Appointment Support</span>
+          <div className="contact-hero-media" style={{ backgroundImage: `url('${immediateHelpImage}')` }}>
+            <div className="contact-hero-media-overlay"></div>
+          </div>
         </div>
       </section>
 
-      <section className="contact-grid">
-        <div className="contact-column contact-left">
-          <article className="contact-card slide-in-left delay-1">
-            <h2>Address</h2>
+      <section className="contact-page-compact">
+        <section className="contact-strip contact-strip-call">
+        <div className="section-divider">
+          <span />
+          <span className="divider-mark">✦</span>
+          <span />
+        </div>
+        <h2>Give Us a Call</h2>
+        <p>
+          We understand you might have additional questions about our hospital.
+          Feel free to give us a call, and our managers will patiently listen
+          to all your doubts and help you make an informed decision.
+        </p>
+        <a href="tel:05224232333" className="contact-action-card">
+          <strong>Mobile Number</strong>
+          <span>+91 72900 21707 / 706</span>
+        </a>
+      </section>
+
+      <section className="contact-strip contact-strip-whatsapp">
+        <div className="section-divider">
+          <span />
+          <span className="divider-mark">✦</span>
+          <span />
+        </div>
+        <h2>Chat With Us - Send us a WhatsApp Message</h2>
+        <p>
+          Our team is available to chat with you on WhatsApp round the clock.
+          Just scan the QR code or send us a Hello!
+          {' '}
+          <a href="https://wa.me/917290021707">+91 72900 21707</a>
+          {' '}or{' '}
+          <a href="https://wa.me/917290021706">+91 72900 21706</a>
+        </p>
+        <a href="https://wa.me/917290021707" className="contact-action-button contact-action-button-alt">
+          WhatsApp Now
+        </a>
+      </section>
+
+      <section className="contact-strip contact-strip-write">
+        <div className="section-divider">
+          <span />
+          <span className="divider-mark">✦</span>
+          <span />
+        </div>
+        <h2>Write to Us</h2>
+        <p>
+          At Sanjivini, we are always eager to hear from you and address your
+          curiosities and concerns.
+        </p>
+      </section>
+
+      <section className="contact-info-section">
+        <div className="contact-info-grid">
+          <article className="contact-info-card contact-info-address">
+            <div className="contact-info-icon"></div>
+            <h3>Visit Us</h3>
             <p>
               CP23 Viraj Khand, Gomti Nagar, Lucknow, near Hahnemann Rd,
               Chauraha, Uttar Pradesh 226010
             </p>
           </article>
 
-          <article className="contact-card slide-in-left delay-2">
-            <h2>Hospital Timing</h2>
-            <p>Emergency &amp; Trauma 24x7</p>
-            <p>OPD Timing - Mon To Sunday - 9am to 8pm</p>
+          <article className="contact-info-card contact-info-timing">
+            <div className="contact-info-icon"></div>
+            <h3>Hospital Timing</h3>
+            <p><strong>Emergency &amp; Trauma:</strong> 24/7</p>
+            <p><strong>OPD:</strong> Mon - Sun, 9:00 AM - 8:00 PM</p>
           </article>
 
-          <article className="contact-card slide-in-left delay-3">
-            <h2>For Marketing &amp; Business Relations</h2>
-            <p>Email: corporaterelations@sanjivinihospitals.com</p>
-          </article>
-
-          <article className="contact-card slide-in-left delay-4">
-            <h2>For Job/ Careers</h2>
-            <p>Email: hr@sanjivinihospitals.com</p>
-            <p>Call/Whatsapp: 9140912806</p>
-          </article>
-        </div>
-
-        <div className="contact-column contact-right">
-          <article className="contact-card contact-primary slide-in-right delay-2">
-            <h2>For Appointment &amp; General Enquiries</h2>
-
-            <h3>Call / Whatsapp</h3>
-            <ul className="contact-phone-list">
-              <li>
-                <a href="tel:05224232333">0522-4232333</a>
-              </li>
-              <li>
-                <a href="tel:05223573895">0522-3573895</a>
-              </li>
-              <li>
-                <a href="tel:7307507050">7307507050</a>
-              </li>
+          <article className="contact-info-card contact-info-appointment">
+            <div className="contact-info-icon"></div>
+            <h3>Book Appointment</h3>
+            <ul className="contact-info-phone-list">
+              <li><a href="tel:05224232333"><strong>0522-4232333</strong></a></li>
+              <li><a href="tel:05223573895">0522-3573895</a></li>
+              <li><a href="tel:7307507050">7307507050</a></li>
             </ul>
-
-            <h3>Or Fill Form</h3>
-            <form className="enquiry-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="text" placeholder="Name*" aria-label="Name" />
-              <input
-                type="tel"
-                placeholder="Phone Number*"
-                aria-label="Phone Number"
-              />
-              <button type="submit">Submit Now</button>
-            </form>
           </article>
         </div>
+      </section>
+
+      <section className="contact-map">
+        <h2>Visit Our Hospital</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.0982045688477!2d80.95649917520703!3d26.843770969999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be34efc75f8b9%3A0x60f33c84c2ed46d!2sSanjivini%20Super%20Speciality%20Hospital!5e0!3m2!1sen!2sin!4v1234567890123"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Sanjivini Hospital Location"
+          className="contact-map-frame"
+        ></iframe>
+      </section>
+
+      <section className="contact-enquiry">
+        <div className="contact-card contact-enquiry-card slide-in-right delay-3">
+          <div className="contact-enquiry-copy">
+            <h2>Write to Us</h2>
+            <p>
+              Share your details and our team will reach out with the right
+              support for appointments, emergency care, or general assistance.
+            </p>
+          </div>
+
+          <form className="enquiry-form enquiry-form-grid" onSubmit={(e) => e.preventDefault()}>
+            <div>
+              <label htmlFor="first-name">Your First Name*</label>
+              <input id="first-name" type="text" placeholder="Your First Name*" aria-label="Your First Name" />
+            </div>
+            <div>
+              <label htmlFor="last-name">Your Last Name*</label>
+              <input id="last-name" type="text" placeholder="Your Last Name*" aria-label="Your Last Name" />
+            </div>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input id="email" type="email" placeholder="Email" aria-label="Email" />
+            </div>
+            <div>
+              <label htmlFor="phone">Phone Number*</label>
+              <input id="phone" type="tel" placeholder="Phone Number*" aria-label="Phone Number" />
+            </div>
+            <div className="enquiry-full">
+              <label htmlFor="interest">I am interested in Sanjivini for *</label>
+              <input id="interest" type="text" placeholder="Please Select" aria-label="Interest" />
+            </div>
+            <div className="enquiry-full">
+              <label htmlFor="message">Leave us a message</label>
+              <textarea id="message" rows="4" placeholder="Leave us a message" aria-label="Message"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
       </section>
 
       <footer className="contact-footer">

@@ -1,84 +1,123 @@
 /* Facilities & Services Page Styles */
 
 .facilities-page {
-  background: linear-gradient(
-    180deg,
-    #eaf7f5 0%,
-    #eef7f8 50%,
-    #f8fdfd 100%
-  );
+  background: linear-gradient(180deg, #eaf7f5 0%, #eef7f8 50%, #f8fdfd 100%);
 }
 
 .facilities-hero {
-  position: relative;
-  height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(135deg, rgba(25, 69, 85, 0.85), rgba(37, 95, 110, 0.78)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,100 Q300,50 600,100 T1200,100 L1200,320 L0,320 Z"/></svg>') center/cover;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 8px 0;
+}
+
+.facilities-hero-inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 400px;
   overflow: hidden;
+  border: 1px solid rgba(216, 197, 201, 0.9);
+  border-radius: 22px;
+  background: #f7efed;
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  box-shadow: 0 18px 50px rgba(21, 62, 76, 0.12);
+  position: relative;
 }
 
-.facilities-hero::before {
+.facilities-hero-inner::before {
   content: "";
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  right: -100px;
-  top: -100px;
-  background: radial-gradient(circle, rgba(163, 211, 204, 0.3), transparent 70%);
-  border-radius: 50%;
-}
-
-.facilities-hero::after {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  left: -80px;
-  bottom: -80px;
-  background: radial-gradient(circle, rgba(243, 125, 121, 0.25), transparent 70%);
-  border-radius: 50%;
-}
-
-.hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 20% 50%,
-    rgba(173, 48, 72, 0.15),
-    transparent 50%
-  );
+  background: linear-gradient(90deg, rgba(247, 239, 237, 0.88) 0%, rgba(247, 239, 237, 0.22) 16%, rgba(247, 239, 237, 0) 42%);
+  pointer-events: none;
+  z-index: 1;
 }
 
-.hero-content {
-  position: relative;
+.facilities-hero-inner::after {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 8px;
+  background: linear-gradient(90deg, #ad3048, #fbb03b, #194656);
   z-index: 2;
-  animation: fadeInDown 0.8s ease;
 }
 
-.hero-icon {
-  font-size: 3.5rem;
-  margin-bottom: 12px;
-  animation: float 3s ease-in-out infinite;
+.facilities-hero-copy {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
 }
 
-.facilities-hero h1 {
-  margin: 0 0 12px;
-  color: #ffffff;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-family: "Merriweather", serif;
+.facilities-hero-kicker {
+  margin: 0 0 9px;
+  color: #ad3048;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.64rem;
   font-weight: 700;
 }
 
-.facilities-hero p {
+.facilities-hero-copy h1 {
   margin: 0;
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 680px;
-  line-height: 1.7;
-  font-size: 1.02rem;
+  color: #111111;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: clamp(1.45rem, 2.65vw, 2.2rem);
+  line-height: 1.12;
+  max-width: 11ch;
+}
+
+.facilities-hero-text {
+  margin: 12px 0 0;
+  max-width: 520px;
+  color: #44555b;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.facilities-hero-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.facilities-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 180px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #194656;
+  background: #194656;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.facilities-hero-button:hover {
+  transform: translateY(-1px);
+  background: #ad3048;
+  border-color: #ad3048;
+}
+
+.facilities-hero-button-secondary {
+  background: #2d6a53;
+  border-color: #2d6a53;
+}
+
+.facilities-hero-button-secondary:hover {
+  background: #194656;
+  border-color: #194656;
 }
 
 .facilities-intro {
@@ -535,6 +574,25 @@
 }
 
 @media (max-width: 640px) {
+  .facilities-hero-inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    border-radius: 24px;
+    background-position: center;
+  }
+
+  .facilities-hero-copy {
+    padding: 32px 24px 24px;
+  }
+
+  .facilities-hero-copy h1 {
+    max-width: none;
+  }
+
+  .facilities-hero-button {
+    min-width: 100%;
+  }
+
   .facility-section,
   .facility-section.image-left {
     grid-template-columns: 1fr;
@@ -566,19 +624,15 @@
   }
 
   .facilities-hero {
-    height: 260px;
-  }
-
-  .hero-icon {
-    font-size: 2.8rem;
-  }
-
-  .facilities-hero h1 {
-    font-size: 2rem;
+    padding-top: 20px;
   }
 }
 
 @media (max-width: 480px) {
+  .facilities-hero-copy h1 {
+    font-size: 2rem;
+  }
+
   .facility-image-wrapper {
     height: 200px;
   }

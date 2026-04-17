@@ -1,12 +1,12 @@
 import SpecialtyFooterCta from "../../shared/components/SpecialtyFooterCta";
-import gynaeTallImage from "../../images/Specialties/Obstetrics & gynecology /gynae-copy.webp";
-import projectUmmeedGif from "../../images/Specialties/Obstetrics & gynecology /Project-Ummeed-Page_1-1.gif";
-import pregnancyCareImage from "../../images/Specialties/Obstetrics & gynecology /gyno-2-1024x1024.webp";
-import prenatalPartnerImage from "../../images/Specialties/Obstetrics & gynecology /Gyni-04-1024x1024.webp";
-import endometriosisCareImage from "../../images/Specialties/Obstetrics & gynecology /gynov3-1024x1024.webp";
-import pcosCareImage from "../../images/Specialties/Obstetrics & gynecology /gyno-5v3.webp";
-import drHumairaImage from "../../images/Specialties/Obstetrics & gynecology /Dr.-Humaira.webp";
-import drSiddhidatriImage from "../../images/Specialties/Obstetrics & gynecology /Siddhidatri-circle.webp";
+import gynaeTallImage from "../../images/Specialties/Obstetrics_gynecology/gynae-copy.webp";
+import projectUmmeedGif from "../../images/Specialties/Obstetrics_gynecology/Project-Ummeed-Page_1-1.gif";
+import pregnancyCareImage from "../../images/Specialties/Obstetrics_gynecology/gyno-2-1024x1024.webp";
+import prenatalPartnerImage from "../../images/Specialties/Obstetrics_gynecology/Gyni-04-1024x1024.webp";
+import endometriosisCareImage from "../../images/Specialties/Obstetrics_gynecology/gynov3-1024x1024.webp";
+import pcosCareImage from "../../images/Specialties/Obstetrics_gynecology/gyno-5v3.webp";
+import drHumairaImage from "../../images/Specialties/Obstetrics_gynecology/Dr.-Humaira.webp";
+import drSiddhidatriImage from "../../images/Specialties/Obstetrics_gynecology/Siddhidatri-circle.webp";
 
 const treatments = [
   "Complicated / High risk Pregnancies",

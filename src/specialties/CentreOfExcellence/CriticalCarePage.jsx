@@ -1,8 +1,8 @@
 import SpecialtyFooterCta from "../../shared/components/SpecialtyFooterCta";
-import criticalCareTallImage from "../../images/Specialties/Critical care/VB-critical-care-copy.webp";
-import projectUmmeedGif from "../../images/Specialties/Critical care/Project-Ummeed-Page_1-1.gif";
-import criticalCareSupportImage from "../../images/Specialties/Critical care/Critical-care-1024x1024.webp";
-import criticalCareProcedureImage from "../../images/Specialties/Critical care/Critical-care-02.webp";
+import criticalCareTallImage from "../../images/Specialties/Critical_care/VB-critical-care-copy.webp";
+import projectUmmeedGif from "../../images/Specialties/Critical_care/Project-Ummeed-Page_1-1.gif";
+import criticalCareSupportImage from "../../images/Specialties/Critical_care/Critical-care-1024x1024.webp";
+import criticalCareProcedureImage from "../../images/Specialties/Critical_care/Critical-care-02.webp";
 
 const whatWeTreat = [
   "Complete Geriatric Care - Closely monitored treatment for old patients since their body reacts differently to medication",

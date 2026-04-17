@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import SpecialtyFooterCta from "../../shared/components/SpecialtyFooterCta";
-import internalImage from "../../images/Specialties/Internal Medicine/internal.webp";
-import projectUmmeedGif from "../../images/Specialties/Internal Medicine/Project-Ummeed-Page_1-1.gif";
-import drAKUpadhyayImage from "../../images/Specialties/Internal Medicine/Dr.-A.K.-Upadhyay-copy.webp";
+import internalImage from "../../images/Specialties/Internal_Medicine/internal.webp";
+import projectUmmeedGif from "../../images/Specialties/Internal_Medicine/Project-Ummeed-Page_1-1.gif";
+import drAKUpadhyayImage from "../../images/Specialties/Internal_Medicine/Dr.-A.K.-Upadhyay-copy.webp";
 
 // Slideshow images for 3rd image slot
-import inMed01 from "../../images/Specialties/Internal Medicine/third image slide show/In-med-01-new-edit.webp";
-import inMed02 from "../../images/Specialties/Internal Medicine/third image slide show/In-med-02-.webp";
-import inMed03 from "../../images/Specialties/Internal Medicine/third image slide show/In-med-03.webp";
-import inMed04 from "../../images/Specialties/Internal Medicine/third image slide show/In-med-04.webp";
-import inMed05 from "../../images/Specialties/Internal Medicine/third image slide show/In-med-05-.webp";
+import inMed01 from "../../images/Specialties/Internal_Medicine/third image slide show/In-med-01-new-edit.webp";
+import inMed02 from "../../images/Specialties/Internal_Medicine/third image slide show/In-med-02-.webp";
+import inMed03 from "../../images/Specialties/Internal_Medicine/third image slide show/In-med-03.webp";
+import inMed04 from "../../images/Specialties/Internal_Medicine/third image slide show/In-med-04.webp";
+import inMed05 from "../../images/Specialties/Internal_Medicine/third image slide show/In-med-05-.webp";
 
 const treatedConditions = [
   "Rheumatic Fever",

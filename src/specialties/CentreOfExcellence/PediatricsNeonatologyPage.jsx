@@ -1,9 +1,9 @@
 import SpecialtyFooterCta from "../../shared/components/SpecialtyFooterCta";
-import pediatricsTallImage from "../../images/Specialties/Pediatrics and Neonatology/Pediatrics-copy.webp";
-import projectUmmeedGif from "../../images/Specialties/Pediatrics and Neonatology/Project-Ummeed-Page_1-1.gif";
-import kidsCareImage from "../../images/Specialties/Pediatrics and Neonatology/Paediatrics-and-Neonatology-v3.webp";
-import childCareImage from "../../images/Specialties/Pediatrics and Neonatology/Paediatrics-and-Neonatology-2-v4--1024x1024.webp";
-import drPandeyImage from "../../images/Specialties/Pediatrics and Neonatology/docnew4.jpg";
+import pediatricsTallImage from "../../images/Specialties/Pediatrics_Neonatology/Pediatrics-copy.webp";
+import projectUmmeedGif from "../../images/Specialties/Pediatrics_Neonatology/Project-Ummeed-Page_1-1.gif";
+import kidsCareImage from "../../images/Specialties/Pediatrics_Neonatology/Paediatrics-and-Neonatology-v3.webp";
+import childCareImage from "../../images/Specialties/Pediatrics_Neonatology/Paediatrics-and-Neonatology-2-v4--1024x1024.webp";
+import drPandeyImage from "../../images/Specialties/Pediatrics_Neonatology/docnew4.jpg";
 
 const treatments = [
   "Low birth weight of premature babies",

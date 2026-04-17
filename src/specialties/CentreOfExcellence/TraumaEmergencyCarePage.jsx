@@ -1,6 +1,6 @@
 import SpecialtyFooterCta from "../../shared/components/SpecialtyFooterCta";
-import traumaTallGif from "../../images/Specialties/Trauma & Emergency Care/Trauma-GIF.gif";
-import projectUmmeedGif from "../../images/Specialties/Trauma & Emergency Care/Project-Ummeed-Page_1-1.gif";
+import traumaTallGif from "../../images/Specialties/Trauma_Emergency_Care/Trauma-GIF.gif";
+import projectUmmeedGif from "../../images/Specialties/Trauma_Emergency_Care/Project-Ummeed-Page_1-1.gif";
 
 const sideBanners = [
   {

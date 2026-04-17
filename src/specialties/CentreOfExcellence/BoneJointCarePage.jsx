@@ -1,10 +1,10 @@
 import SpecialtyFooterCta from "../../shared/components/SpecialtyFooterCta";
-import jointLineImage from "../../images/Specialties/Bone & Joint Care/Joint-line-copy.webp";
-import projectUmmeedGif from "../../images/Specialties/Bone & Joint Care/Project-Ummeed-Page_1-1.gif";
-import boneCareImage from "../../images/Specialties/Bone & Joint Care/Bone-care-v3-1-1024x1024.webp";
-import kneePainImage from "../../images/Specialties/Bone & Joint Care/Bone-care-2-v4-1-1024x1024.webp";
-import drRKSrivastavaImage from "../../images/Specialties/Bone & Joint Care/Dr.-R.-K.-Srivastava-copy-1.webp";
-import drRohitAilaniImage from "../../images/Specialties/Bone & Joint Care/Dr.-Rohit-Ailani-1.webp";
+import jointLineImage from "../../images/Specialties/Bone_Joint_Care/Joint-line-copy.webp";
+import projectUmmeedGif from "../../images/Specialties/Bone_Joint_Care/Project-Ummeed-Page_1-1.gif";
+import boneCareImage from "../../images/Specialties/Bone_Joint_Care/Bone-care-v3-1-1024x1024.webp";
+import kneePainImage from "../../images/Specialties/Bone_Joint_Care/Bone-care-2-v4-1-1024x1024.webp";
+import drRKSrivastavaImage from "../../images/Specialties/Bone_Joint_Care/Dr.-R.-K.-Srivastava-copy-1.webp";
+import drRohitAilaniImage from "../../images/Specialties/Bone_Joint_Care/Dr.-Rohit-Ailani-1.webp";
 
 const treatments = [
   "Pain Management",

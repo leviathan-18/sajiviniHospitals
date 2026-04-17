@@ -2,10 +2,15 @@ import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import logoImage from '../images/build/logo.png';
 import { primaryMenu } from '../shared/navigation/menuData';
+import { specialtiesMegaMenu } from '../specialties/specialtiesData';
 
 const getActiveSection = (pathname, hash) => {
   if (pathname.startsWith('/about')) {
     return 'about';
+  }
+
+  if (pathname.startsWith('/specialties')) {
+    return 'specialties';
   }
 
   if (pathname === '/contact-us' || hash === '#contact') {
@@ -23,7 +28,9 @@ const Navbar = () => {
   const { pathname, hash } = useLocation();
   const activeSection = getActiveSection(pathname.toLowerCase(), hash.toLowerCase());
   const [isAboutMenuOpen, setIsAboutMenuOpen] = useState(false);
+  const [isSpecialtiesMenuOpen, setIsSpecialtiesMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileSpecialtiesOpen, setIsMobileSpecialtiesOpen] = useState(false);
   const [closeTimer, setCloseTimer] = useState(null);
 
   const navLinkBase =
@@ -50,9 +57,28 @@ const Navbar = () => {
     setCloseTimer(timerId);
   };
 
+  const openSpecialtiesMenu = () => {
+    if (closeTimer) {
+      window.clearTimeout(closeTimer);
+      setCloseTimer(null);
+    }
+
+    setIsSpecialtiesMenuOpen(true);
+  };
+
+  const closeSpecialtiesMenu = () => {
+    const timerId = window.setTimeout(() => {
+      setIsSpecialtiesMenuOpen(false);
+    }, 120);
+
+    setCloseTimer(timerId);
+  };
+
   const closeMenus = () => {
     setIsAboutMenuOpen(false);
+    setIsSpecialtiesMenuOpen(false);
     setIsMobileMenuOpen(false);
+    setIsMobileSpecialtiesOpen(false);
   };
 
   const handleMenuItemClick = () => {
@@ -154,8 +180,61 @@ const Navbar = () => {
               </div>
             </div>
 
+            <div
+              className="relative"
+              onMouseEnter={openSpecialtiesMenu}
+              onMouseLeave={closeSpecialtiesMenu}
+              onFocusCapture={openSpecialtiesMenu}
+              onBlurCapture={closeSpecialtiesMenu}
+            >
+              <button
+                type="button"
+                onClick={() => setIsSpecialtiesMenuOpen((value) => !value)}
+                className={`${navLinkBase} ${activeSection === 'specialties' || isSpecialtiesMenuOpen ? navLinkActive : ''}`}
+              >
+                Specialties
+                <span
+                  className={`text-[11px] transition-transform duration-300 ${isSpecialtiesMenuOpen ? 'rotate-180' : ''}`}
+                  aria-hidden="true"
+                >
+                  ▼
+                </span>
+              </button>
+
+              <div
+                className={`absolute left-1/2 top-full z-50 mt-3 w-[min(94vw,980px)] -translate-x-1/2 overflow-hidden rounded-[22px] border border-[#E9D9DD] bg-white px-5 py-4 shadow-[0_24px_50px_rgba(21,62,76,0.14)] whitespace-normal transition-all duration-200 ${
+                  isSpecialtiesMenuOpen ? 'visible translate-y-0 opacity-100' : 'invisible translate-y-2 opacity-0'
+                }`}
+                onMouseEnter={openSpecialtiesMenu}
+                onMouseLeave={closeSpecialtiesMenu}
+              >
+                <div className="grid gap-5 md:grid-cols-3">
+                  {specialtiesMegaMenu.map((section) => (
+                    <div key={section.heading} className="min-w-0">
+                      <h3 className="mb-2 border-l-4 border-[#AD3048] pl-2 text-[11px] font-black uppercase leading-tight tracking-[0.04em] text-[#194656] lg:text-xs">
+                        {section.heading}
+                      </h3>
+                      <div className="space-y-0.5">
+                        {section.items.map((item) => (
+                          <Link
+                            key={item.slug}
+                            to={`/specialties/${item.slug}`}
+                            onClick={handleMenuItemClick}
+                            className="group flex items-start gap-2 rounded-lg px-2 py-1.5 text-[15px] font-medium text-[#1f2f35] transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                          >
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-[2px] bg-[#E8B6C0] group-hover:bg-[#AD3048]" aria-hidden="true" />
+                            <span>{item.label}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {primaryMenu
-              .filter((item) => item.path !== '/')
+              .filter((item) => item.path !== '/' && item.path !== '/specialties')
               .map((item) => (
                 <NavLink key={item.path} to={item.path} className={routeLinkClass} onClick={handleMenuItemClick}>
                   {item.label}
@@ -190,8 +269,38 @@ const Navbar = () => {
             <Link to="/about#our-lakshya" onClick={handleMenuItemClick} className="block rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]">
               Our Lakshya
             </Link>
+
+            <button
+              type="button"
+              onClick={() => setIsMobileSpecialtiesOpen((value) => !value)}
+              className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+            >
+              <span>Specialties</span>
+              <span className={`text-xs transition-transform ${isMobileSpecialtiesOpen ? 'rotate-180' : ''}`}>▼</span>
+            </button>
+
+            <div className={`overflow-hidden transition-all duration-300 ${isMobileSpecialtiesOpen ? 'max-h-[520px] pb-1' : 'max-h-0'}`}>
+              {specialtiesMegaMenu.map((section) => (
+                <div key={section.heading} className="px-4 py-1">
+                  <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#194656]">{section.heading}</p>
+                  <div className="space-y-0.5">
+                    {section.items.map((item) => (
+                      <Link
+                        key={item.slug}
+                        to={`/specialties/${item.slug}`}
+                        onClick={handleMenuItemClick}
+                        className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {primaryMenu
-              .filter((item) => item.path !== '/')
+              .filter((item) => item.path !== '/' && item.path !== '/specialties')
               .map((item) => (
                 <NavLink
                   key={item.path}

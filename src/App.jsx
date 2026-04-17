@@ -11,6 +11,7 @@ import SuccessStories from "./home/SuccessStories";
 import OurChroniclesPage from "./ourChronicles/OurChroniclesPage";
 import FacilitiesServicesPage from "./facilitiesAndServices/FacilitiesServicesPage";
 import SpecialtiesPage from "./specialties/SpecialtiesPage";
+import SpecialtyDetailPage from "./specialties/SpecialtyDetailPage";
 import TpaEmpanelmentPage from "./TPAsAndEmpanelments/TpaEmpanelmentPage";
 
 function HomeRoute() {
@@ -54,6 +55,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/facilities-and-services" element={<FacilitiesServicesPage />} />
           <Route path="/specialties" element={<SpecialtiesPage />} />
+          <Route path="/specialties/:slug" element={<SpecialtyDetailPage />} />
           <Route path="/our-chronicles" element={<OurChroniclesPage />} />
           <Route path="/tpas-and-empanelments" element={<TpaEmpanelmentPage />} />
           <Route path="/contact-us" element={<ContactPage />} />

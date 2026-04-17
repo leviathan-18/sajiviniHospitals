@@ -109,7 +109,7 @@ export default function ContactPage() {
       <section className="contact-map">
         <h2>Visit Our Hospital</h2>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.0982045688477!2d80.95649917520703!3d26.843770969999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be34efc75f8b9%3A0x60f33c84c2ed46d!2sSanjivini%20Super%20Speciality%20Hospital!5e0!3m2!1sen!2sin!4v1234567890123"
+          src="https://maps.google.com/maps?q=Sanjivini%20Super%20Speciality%20Hospital%2C%20CP23%20Viraj%20Khand%2C%20Gomti%20Nagar%2C%20Lucknow%2C%20Uttar%20Pradesh%20226010&t=&z=17&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="450"
           style={{ border: 0 }}

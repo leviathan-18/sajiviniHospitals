@@ -185,30 +185,30 @@ const Home = () => {
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="overflow-hidden rounded-[24px] border border-[#d8c5c9] bg-white shadow-[0_14px_35px_rgba(21,62,76,0.08)] flex h-full flex-col">
-                <div className="p-4 min-h-[112px]">
+              <div className="overflow-hidden rounded-[24px] border border-[#d8c5c9] bg-white shadow-[0_14px_35px_rgba(21,62,76,0.08)] flex h-full min-h-[224px] flex-col">
+                <div className="h-1/2 p-4 flex flex-col justify-center">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#AD3048]">Clean care</p>
                   <p className="mt-2 text-sm leading-5 text-[#4e5a60]">Quiet, sterile, and organized spaces for urgent visits.</p>
                 </div>
-                <img src={cleanCareImage} alt="Clean care" className="h-24 w-full object-cover" />
+                <img src={cleanCareImage} alt="Clean care" className="h-1/2 w-full object-cover" />
               </div>
-              <div className="overflow-hidden rounded-[24px] border border-[#d8c5c9] bg-white shadow-[0_14px_35px_rgba(21,62,76,0.08)] flex h-full flex-col">
-                <div className="p-4 min-h-[112px]">
+              <div className="overflow-hidden rounded-[24px] border border-[#d8c5c9] bg-white shadow-[0_14px_35px_rgba(21,62,76,0.08)] flex h-full min-h-[224px] flex-col">
+                <div className="h-1/2 p-4 flex flex-col justify-center">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#AD3048]">Trusted team</p>
                   <p className="mt-2 text-sm leading-5 text-[#4e5a60]">Experienced staff focused on quick attention and comfort.</p>
                 </div>
                 <img
                   src={homePageImage}
                   alt="Trusted team"
-                  className="h-24 w-full object-cover"
+                  className="h-1/2 w-full object-cover"
                 />
               </div>
-              <div className="overflow-hidden rounded-[24px] border border-[#d8c5c9] bg-white shadow-[0_14px_35px_rgba(21,62,76,0.08)] flex h-full flex-col">
-                <div className="p-4 min-h-[112px]">
+              <div className="overflow-hidden rounded-[24px] border border-[#d8c5c9] bg-white shadow-[0_14px_35px_rgba(21,62,76,0.08)] flex h-full min-h-[224px] flex-col">
+                <div className="h-1/2 p-4 flex flex-col justify-center">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#AD3048]">Immediate help</p>
                   <p className="mt-2 text-sm leading-5 text-[#4e5a60]">Clear support when every minute matters most.</p>
                 </div>
-                <img src={immediateHelpImage} alt="Immediate help" className="h-24 w-full object-cover" />
+                <img src={immediateHelpImage} alt="Immediate help" className="h-1/2 w-full object-cover" />
               </div>
             </div>
           </div>

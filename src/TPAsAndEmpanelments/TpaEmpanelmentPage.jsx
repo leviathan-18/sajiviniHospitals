@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import heroImg from "../images/emplanelments/hero.png";
+import "./TpaEmpanelment.css";
+
 export default function TpaEmpanelmentPage() {
   const partnerCompanies = [
     "FHPL (Family Health Plan Insurance TPA Pvt Ltd)",
@@ -54,7 +58,27 @@ export default function TpaEmpanelmentPage() {
   ];
 
   return (
-    <main className="empanelment-page">
+    <main className="tpa-empanelment-page">
+      <section className="tpa-hero">
+        <div className="tpa-hero-container">
+          <div className="tpa-hero-left">
+            <p className="tpa-hero-kicker">Sanjivini Hospitals</p>
+            <h1>Cashless Healthcare for All</h1>
+            <p className="tpa-hero-description">
+              We've partnered with 30+ insurance companies and TPAs to make quality healthcare accessible and affordable. Get cashless treatment at Sanjivini Super Speciality Hospital.
+            </p>
+            <div className="tpa-hero-actions">
+              <Link to="/contact-us" className="tpa-hero-button">
+                Contact Us
+              </Link>
+              <a href="#empanelment-list" className="tpa-hero-button tpa-hero-button-secondary">
+                View Partners
+              </a>
+            </div>
+          </div>
+          <div className="tpa-hero-right" style={{ backgroundImage: `url('${heroImg}')` }}></div>
+        </div>
+      </section>
       <section className="empanelment-hero rounded-4 shadow-lg overflow-hidden">
         <div className="container py-5">
           <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-3">
@@ -72,7 +96,7 @@ export default function TpaEmpanelmentPage() {
         </div>
       </section>
 
-      <section className="empanelment-layout">
+      <section className="empanelment-layout" id="empanelment-list">
         <article className="list-panel h-100 p-4 p-md-5 rounded-4">
           <h2 className="section-title mb-3">List of Partner Companies and TPAs</h2>
           <ul className="custom-list mb-4">

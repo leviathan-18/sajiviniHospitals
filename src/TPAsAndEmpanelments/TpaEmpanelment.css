@@ -1,0 +1,172 @@
+/* TPA Empanelment Page Styles */
+
+.tpa-empanelment-page {
+  background: linear-gradient(180deg, #f8fdfd 0%, #eef7f8 50%, #eaf7f5 100%);
+}
+
+.tpa-hero {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 8px 0;
+}
+
+.tpa-hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+  overflow: hidden;
+  border: 1px solid rgba(216, 197, 201, 0.9);
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(21, 62, 76, 0.12);
+  position: relative;
+}
+
+.tpa-hero-left {
+  background: #ffffff;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.tpa-hero-left::after {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 8px;
+  background: linear-gradient(90deg, #ad3048, #fbb03b, #194656);
+  z-index: 3;
+}
+
+.tpa-hero-right {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.tpa-hero-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.74) 36%, rgba(255, 255, 255, 0.34) 62%, rgba(255, 255, 255, 0.08) 80%, rgba(255, 255, 255, 0) 92%);
+  box-shadow: inset 56px 0 70px rgba(255, 255, 255, 0.78);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tpa-hero-kicker {
+  margin: 0 0 9px;
+  color: #ad3048;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.tpa-hero-left h1 {
+  margin: 0;
+  color: #111111;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.12;
+  max-width: 15ch;
+}
+
+.tpa-hero-description {
+  margin: 12px 0 0;
+  max-width: 520px;
+  color: #44555b;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.tpa-hero-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.tpa-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  min-width: 160px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #194656;
+  background: #194656;
+  color: #ffffff;
+  font-size: 0.79rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.tpa-hero-button:hover {
+  transform: translateY(-2px);
+  background: #ad3048;
+  border-color: #ad3048;
+}
+
+.tpa-hero-button-secondary {
+  background: transparent;
+  color: #194656;
+  border-color: #194656;
+}
+
+.tpa-hero-button-secondary:hover {
+  background: #194656;
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tpa-hero-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .tpa-hero-left {
+    padding: 28px 22px;
+    min-height: 300px;
+  }
+
+  .tpa-hero-right {
+    min-height: 240px;
+    order: -1;
+  }
+
+  .tpa-hero-left h1 {
+    font-size: clamp(1.25rem, 2.3vw, 1.65rem);
+    max-width: 100%;
+  }
+
+  .tpa-hero-actions {
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .tpa-hero-button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Empanelment Hero Section (below split hero) */
+.empanelment-hero {
+  background: linear-gradient(135deg, #194656 0%, #2d6a53 100%);
+  margin-top: 40px;
+}
+
+.empanelment-page {
+  background: linear-gradient(180deg, #f8fdfd 0%, #eef7f8 50%, #eaf7f5 100%);
+}

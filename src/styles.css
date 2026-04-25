@@ -854,6 +854,7 @@ h3 {
   padding: 0 20px;
   position: relative;
   isolation: isolate;
+  overflow-x: clip;
 }
 
 .contact-page::before,
@@ -1306,7 +1307,7 @@ h3 {
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1024px) {
   .menu-toggle {
     display: block;
   }

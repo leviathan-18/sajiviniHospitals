@@ -31,10 +31,11 @@ const Navbar = () => {
   const [isSpecialtiesMenuOpen, setIsSpecialtiesMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSpecialtiesOpen, setIsMobileSpecialtiesOpen] = useState(false);
+  const [isCompactSpecialtiesOpen, setIsCompactSpecialtiesOpen] = useState(false);
   const [closeTimer, setCloseTimer] = useState(null);
 
   const navLinkBase =
-    'relative inline-flex items-center gap-1 rounded-full px-3 py-2 text-[13px] font-bold text-[#AD3048] transition-all duration-300 after:absolute after:left-2 after:right-2 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[#AD3048] after:transition-transform after:duration-300 hover:bg-[#FDF2F2] hover:text-[#AD3048] hover:after:scale-x-100 lg:px-4 lg:py-2.5 lg:text-[15px]';
+    'relative inline-flex items-center gap-1 rounded-full px-1.5 py-1.5 text-[10px] font-bold text-[#AD3048] transition-all duration-300 after:absolute after:left-1.5 after:right-1.5 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[#AD3048] after:transition-transform after:duration-300 hover:bg-[#FDF2F2] hover:text-[#AD3048] hover:after:scale-x-100 lg:px-2.5 lg:py-2 lg:text-[11px] xl:px-3 xl:text-[12px] 2xl:px-4 2xl:py-2.5 2xl:text-[14px]';
 
   const navLinkActive = 'bg-[#FDF2F2] text-[#AD3048]';
 
@@ -79,6 +80,7 @@ const Navbar = () => {
     setIsSpecialtiesMenuOpen(false);
     setIsMobileMenuOpen(false);
     setIsMobileSpecialtiesOpen(false);
+    setIsCompactSpecialtiesOpen(false);
   };
 
   const handleMenuItemClick = () => {
@@ -88,33 +90,37 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 overflow-x-clip border-b border-[#E9D9DD] bg-white/90 shadow-[0_10px_30px_rgba(21,62,76,0.08)] backdrop-blur-xl">
       <div className="container mx-auto px-3 py-3.5 sm:px-4 sm:py-4 lg:px-6 lg:py-4">
-        <div className="flex items-center justify-between gap-3 md:gap-3">
+        <div className="flex flex-nowrap items-center justify-between gap-1 sm:gap-3 xl:gap-3">
           <Link to="/" className="shrink-0" onClick={handleMenuItemClick}>
-            <img src={logoImage} alt="Sanjivini Logo" className="h-11 object-contain sm:h-12 md:h-12 lg:h-14" />
+            <img src={logoImage} alt="Sanjivini Logo" className="h-8 max-w-[88px] object-contain sm:h-10 sm:max-w-none md:h-9 lg:h-10 xl:h-11 2xl:h-13" />
           </Link>
 
-          <Link
-            to="/specialties"
-            onClick={handleMenuItemClick}
-            className="md:hidden shrink-0 rounded-full border border-[#efbcc5] bg-[#FDF2F2] px-2.5 py-1 text-[10px] font-semibold leading-none text-[#AD3048] whitespace-nowrap"
+          <button
+            type="button"
+            onClick={() => setIsCompactSpecialtiesOpen((value) => !value)}
+            className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[#efbcc5] bg-[#FDF2F2] px-1.5 py-1 text-[8px] font-semibold leading-none text-[#AD3048] whitespace-nowrap sm:px-2.5 sm:text-[10px] md:hidden"
           >
             Specialities
-          </Link>
+            <span className={`text-[7px] transition-transform ${isCompactSpecialtiesOpen ? 'rotate-180' : ''}`}>▼</span>
+          </button>
 
           <Link
-            to="/facilities-and-services"
+            to="/about"
             onClick={handleMenuItemClick}
-            className="md:hidden shrink-0 rounded-full border border-[#efbcc5] bg-white px-2.5 py-1 text-[10px] font-semibold leading-none text-[#194656] whitespace-nowrap"
+            className="inline-flex shrink-0 rounded-full border border-[#efbcc5] bg-white px-1.5 py-1 text-[8px] font-semibold leading-none text-[#194656] whitespace-nowrap sm:px-2.5 sm:text-[10px] md:hidden"
           >
-            Facilities & Services
+            About Us
           </Link>
 
           <button
             type="button"
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen((current) => !current)}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-[#E9D9DD] bg-white text-[#194656] shadow-sm transition hover:bg-[#FDF2F2] md:hidden"
+            onClick={() => {
+              setIsMobileMenuOpen((current) => !current);
+              setIsCompactSpecialtiesOpen(false);
+            }}
+            className="ml-auto grid h-8 w-8 shrink-0 place-items-center rounded-xl border border-[#E9D9DD] bg-white text-[#194656] shadow-sm transition hover:bg-[#FDF2F2] sm:h-10 sm:w-10 md:hidden"
           >
             <span className="flex flex-col gap-1.5">
               <span className="block h-0.5 w-5 bg-current" />
@@ -123,7 +129,7 @@ const Navbar = () => {
             </span>
           </button>
 
-          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 whitespace-nowrap text-[#AD3048] md:flex md:mx-2 lg:mx-4">
+          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 whitespace-nowrap text-[#AD3048] md:flex md:mx-1 lg:mx-2 xl:mx-3 2xl:mx-4">
             <NavLink to="/" className={routeLinkClass} end>
               Home
             </NavLink>
@@ -211,7 +217,7 @@ const Navbar = () => {
                 <div className="grid gap-5 md:grid-cols-3">
                   {specialtiesMegaMenu.map((section) => (
                     <div key={section.heading} className="min-w-0">
-                      <h3 className="mb-2 border-l-4 border-[#AD3048] pl-2 text-[11px] font-black uppercase leading-tight tracking-[0.04em] text-[#194656] lg:text-xs">
+                      <h3 className="mb-2 border-l-4 border-[#AD3048] pl-2 text-[11px] font-black uppercase leading-tight tracking-[0.04em] text-[#194656] xl:text-xs">
                         {section.heading}
                       </h3>
                       <div className="space-y-0.5">
@@ -244,14 +250,40 @@ const Navbar = () => {
 
           <a
             href="tel:0522-4232333"
-            className="hidden shrink-0 rounded-full bg-[#AD3048] px-4 py-2.5 text-sm font-bold text-white shadow-[0_14px_30px_rgba(173,48,72,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#194656] hover:shadow-[0_18px_36px_rgba(25,70,86,0.25)] lg:inline-flex lg:px-5 lg:text-[15px]"
+            className="hidden shrink-0 rounded-full bg-[#AD3048] px-3 py-2 text-[12px] font-bold text-white shadow-[0_14px_30px_rgba(173,48,72,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#194656] hover:shadow-[0_18px_36px_rgba(25,70,86,0.25)] 2xl:inline-flex 2xl:px-4 2xl:py-2.5 2xl:text-[14px]"
           >
             Call Us
           </a>
         </div>
 
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-[620px] pt-3' : 'max-h-0'}`}
+          className={`md:hidden overflow-hidden transition-all duration-300 ${isCompactSpecialtiesOpen ? 'max-h-[48vh] pt-2' : 'max-h-0'}`}
+        >
+          <div className="rounded-2xl border border-[#E9D9DD] bg-white p-2 shadow-[0_14px_30px_rgba(21,62,76,0.08)]">
+            <div className="max-h-[44vh] overflow-y-auto pr-1">
+              {specialtiesMegaMenu.map((section) => (
+                <div key={section.heading} className="px-2 py-1">
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[#194656]">{section.heading}</p>
+                  <div className="space-y-0.5">
+                    {section.items.map((item) => (
+                      <Link
+                        key={item.slug}
+                        to={`/specialties/${item.slug}`}
+                        onClick={handleMenuItemClick}
+                        className="block rounded-lg px-2 py-1.5 text-[12px] font-medium text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-[calc(100vh-110px)] overflow-y-auto pt-3' : 'max-h-0'}`}
         >
           <nav className="rounded-2xl border border-[#E9D9DD] bg-white p-2 shadow-[0_14px_30px_rgba(21,62,76,0.08)]">
             <NavLink to="/" end onClick={handleMenuItemClick} className="block rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]">
@@ -279,7 +311,7 @@ const Navbar = () => {
               <span className={`text-xs transition-transform ${isMobileSpecialtiesOpen ? 'rotate-180' : ''}`}>▼</span>
             </button>
 
-            <div className={`overflow-hidden transition-all duration-300 ${isMobileSpecialtiesOpen ? 'max-h-[520px] pb-1' : 'max-h-0'}`}>
+            <div className={`overflow-hidden transition-all duration-300 ${isMobileSpecialtiesOpen ? 'max-h-[60vh] overflow-y-auto pb-1' : 'max-h-0'}`}>
               {specialtiesMegaMenu.map((section) => (
                 <div key={section.heading} className="px-4 py-1">
                   <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#194656]">{section.heading}</p>

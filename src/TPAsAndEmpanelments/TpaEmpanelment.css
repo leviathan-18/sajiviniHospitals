@@ -128,6 +128,16 @@
   color: #ffffff;
 }
 
+@media (min-width: 1400px) {
+  .tpa-hero {
+    max-width: 1360px;
+  }
+
+  .tpa-hero-container {
+    min-height: 420px;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .tpa-hero-container {
@@ -151,13 +161,15 @@
   }
 
   .tpa-hero-actions {
+    width: 100%;
     flex-direction: column;
+    align-items: stretch;
     gap: 9px;
   }
 
   .tpa-hero-button {
     width: 100%;
-    max-width: 200px;
+    max-width: none;
   }
 }
 

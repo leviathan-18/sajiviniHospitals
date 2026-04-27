@@ -111,7 +111,6 @@ export default function ContactPage() {
         <iframe
           src="https://maps.google.com/maps?q=Sanjivini%20Super%20Speciality%20Hospital%2C%20CP23%20Viraj%20Khand%2C%20Gomti%20Nagar%2C%20Lucknow%2C%20Uttar%20Pradesh%20226010&t=&z=17&ie=UTF8&iwloc=&output=embed"
           width="100%"
-          height="450"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"

@@ -34,10 +34,11 @@ const Navbar = () => {
   const [isCompactSpecialtiesOpen, setIsCompactSpecialtiesOpen] = useState(false);
   const [closeTimer, setCloseTimer] = useState(null);
 
+  // Desktop nav link styling (768px+)
   const navLinkBase =
-    'relative inline-flex items-center gap-1 rounded-full px-1.5 py-1.5 text-[10px] font-bold text-[#AD3048] transition-all duration-300 after:absolute after:left-1.5 after:right-1.5 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[#AD3048] after:transition-transform after:duration-300 hover:bg-[#FDF2F2] hover:text-[#AD3048] hover:after:scale-x-100 lg:px-2.5 lg:py-2 lg:text-[11px] xl:px-3 xl:text-[12px] 2xl:px-4 2xl:py-2.5 2xl:text-[14px]';
+    "relative inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-1.5 text-[11px] font-bold text-[rgb(173,48,72)] !no-underline transition-all duration-300 md:text-[11px] md:px-2 lg:text-[12px] lg:px-2.5 xl:text-[13px] xl:px-3 2xl:text-[14px] 2xl:px-4 after:content-[''] after:absolute after:left-1.5 after:right-1.5 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:rounded-full after:bg-[#AD3048] after:transition-transform after:duration-300 hover:bg-[#FDF2F2] hover:text-[rgb(173,48,72)] hover:!no-underline hover:after:scale-x-100";
 
-  const navLinkActive = 'bg-[#FDF2F2] text-[#AD3048]';
+  const navLinkActive = 'bg-[#FDF2F2] text-[rgb(173,48,72)] after:scale-x-100';
 
   const routeLinkClass = ({ isActive }) => `${navLinkBase} ${isActive ? navLinkActive : ''}`;
 
@@ -46,7 +47,6 @@ const Navbar = () => {
       window.clearTimeout(closeTimer);
       setCloseTimer(null);
     }
-
     setIsAboutMenuOpen(true);
   };
 
@@ -54,7 +54,6 @@ const Navbar = () => {
     const timerId = window.setTimeout(() => {
       setIsAboutMenuOpen(false);
     }, 120);
-
     setCloseTimer(timerId);
   };
 
@@ -63,7 +62,6 @@ const Navbar = () => {
       window.clearTimeout(closeTimer);
       setCloseTimer(null);
     }
-
     setIsSpecialtiesMenuOpen(true);
   };
 
@@ -71,7 +69,6 @@ const Navbar = () => {
     const timerId = window.setTimeout(() => {
       setIsSpecialtiesMenuOpen(false);
     }, 120);
-
     setCloseTimer(timerId);
   };
 
@@ -88,30 +85,35 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 overflow-x-clip border-b border-[#E9D9DD] bg-white/90 shadow-[0_10px_30px_rgba(21,62,76,0.08)] backdrop-blur-xl">
-      <div className="container mx-auto px-3 py-3.5 sm:px-4 sm:py-4 lg:px-6 lg:py-4">
-        <div className="flex flex-nowrap items-center justify-between gap-1 sm:gap-3 xl:gap-3">
+    <header className="sticky top-0 z-50 border-b border-[#E9D9DD] bg-white/90 text-[rgb(173,48,72)] shadow-[0_10px_30px_rgba(21,62,76,0.08)] backdrop-blur-xl">
+      <div className="mx-auto w-full max-w-[1480px] px-3 py-3 sm:px-4 sm:py-3.5 md:px-5 md:py-3.5 lg:px-6 lg:py-4">
+        <div className="flex min-w-0 flex-nowrap items-center justify-between gap-2 sm:gap-3 md:gap-3 lg:gap-4 xl:gap-5">
+          {/* Logo */}
           <Link to="/" className="shrink-0" onClick={handleMenuItemClick}>
-            <img src={logoImage} alt="Sanjivini Logo" className="h-8 max-w-[88px] object-contain sm:h-10 sm:max-w-none md:h-9 lg:h-10 xl:h-11 2xl:h-13" />
+            <img src={logoImage} alt="Sanjivini Logo" className="h-8 max-w-[88px] object-contain sm:h-9 md:h-9 lg:h-10 xl:h-11 2xl:h-12" />
           </Link>
 
-          <button
-            type="button"
-            onClick={() => setIsCompactSpecialtiesOpen((value) => !value)}
-            className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[#efbcc5] bg-[#FDF2F2] px-1.5 py-1 text-[8px] font-semibold leading-none text-[#AD3048] whitespace-nowrap sm:px-2.5 sm:text-[10px] md:hidden"
-          >
-            Specialities
-            <span className={`text-[7px] transition-transform ${isCompactSpecialtiesOpen ? 'rotate-180' : ''}`}>▼</span>
-          </button>
+          {/* Mobile: Compact buttons (320px - 767px) */}
+          <div className="flex min-w-0 items-center gap-1 sm:gap-1.5 md:hidden">
+            <button
+              type="button"
+              onClick={() => setIsCompactSpecialtiesOpen((value) => !value)}
+              className="inline-flex shrink-0 items-center gap-0.5 rounded-full border border-[#efbcc5] bg-[#FDF2F2] px-1.5 py-1.5 text-[10px] font-bold leading-none text-[#AD3048] whitespace-nowrap sm:px-2 sm:text-[11px]"
+            >
+              Specialities
+              <span className={`text-[7px] transition-transform ${isCompactSpecialtiesOpen ? 'rotate-180' : ''}`}>▼</span>
+            </button>
 
-          <Link
-            to="/about"
-            onClick={handleMenuItemClick}
-            className="inline-flex shrink-0 rounded-full border border-[#efbcc5] bg-white px-1.5 py-1 text-[8px] font-semibold leading-none text-[#194656] whitespace-nowrap sm:px-2.5 sm:text-[10px] md:hidden"
-          >
-            About Us
-          </Link>
+            <Link
+              to="/about"
+              onClick={handleMenuItemClick}
+              className="inline-flex shrink-0 items-center gap-0.5 rounded-full border border-[#efbcc5] bg-[#FDF2F2] px-1.5 py-1.5 text-[10px] font-bold leading-none text-[#AD3048] whitespace-nowrap sm:px-2 sm:text-[11px]"
+            >
+              About Us
+            </Link>
+          </div>
 
+          {/* Mobile: Hamburger (320px - 767px) */}
           <button
             type="button"
             aria-label="Toggle menu"
@@ -120,7 +122,7 @@ const Navbar = () => {
               setIsMobileMenuOpen((current) => !current);
               setIsCompactSpecialtiesOpen(false);
             }}
-            className="ml-auto grid h-8 w-8 shrink-0 place-items-center rounded-xl border border-[#E9D9DD] bg-white text-[#194656] shadow-sm transition hover:bg-[#FDF2F2] sm:h-10 sm:w-10 md:hidden"
+            className="ml-auto grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-[#E9D9DD] bg-white text-[rgb(173,48,72)] shadow-sm transition hover:bg-[#FDF2F2] sm:h-9 sm:w-9 md:hidden"
           >
             <span className="flex flex-col gap-1.5">
               <span className="block h-0.5 w-5 bg-current" />
@@ -129,11 +131,13 @@ const Navbar = () => {
             </span>
           </button>
 
-          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 whitespace-nowrap text-[#AD3048] md:flex md:mx-1 lg:mx-2 xl:mx-3 2xl:mx-4">
+          {/* Tablet & Desktop: Main nav (768px+) */}
+          <nav className="nav-scroll-tablet hidden min-w-0 flex-1 items-center justify-start gap-0.5 whitespace-nowrap text-[#AD3048] md:inline-flex lg:gap-1 xl:justify-center xl:gap-1.5 2xl:gap-2">
             <NavLink to="/" className={routeLinkClass} end>
               Home
             </NavLink>
 
+            {/* About Us with dropdown */}
             <div
               className="relative"
               onMouseEnter={openAboutMenu}
@@ -148,7 +152,7 @@ const Navbar = () => {
               >
                 About Us
                 <span
-                  className={`text-[11px] transition-transform duration-300 ${isAboutMenuOpen ? 'rotate-180' : ''}`}
+                  className={`text-[8px] transition-transform duration-300 ${isAboutMenuOpen ? 'rotate-180' : ''}`}
                   aria-hidden="true"
                 >
                   ▼
@@ -156,7 +160,7 @@ const Navbar = () => {
               </Link>
 
               <div
-                className={`absolute left-0 top-full mt-3 w-72 overflow-hidden rounded-[22px] border border-[#E9D9DD] bg-white p-2 shadow-[0_24px_50px_rgba(21,62,76,0.14)] transition-all duration-200 ${
+                className={`absolute left-0 top-full mt-2 w-64 overflow-hidden rounded-[16px] border border-[#E9D9DD] bg-white p-2 shadow-[0_24px_50px_rgba(21,62,76,0.14)] transition-all duration-200 ${
                   isAboutMenuOpen ? 'visible translate-y-0 opacity-100' : 'invisible translate-y-2 opacity-0'
                 }`}
                 onMouseEnter={openAboutMenu}
@@ -165,27 +169,28 @@ const Navbar = () => {
                 <Link
                   to="/about#our-founders"
                   onClick={handleMenuItemClick}
-                  className="block rounded-2xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                  className="block rounded-lg px-3 py-2 text-[11px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]"
                 >
                   Our Founders
                 </Link>
                 <Link
                   to="/about#project-umeed"
                   onClick={handleMenuItemClick}
-                  className="block rounded-2xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                  className="block rounded-lg px-3 py-2 text-[11px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]"
                 >
                   Project Ummeed by Sanjivni
                 </Link>
                 <Link
                   to="/about#our-lakshya"
                   onClick={handleMenuItemClick}
-                  className="block rounded-2xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                  className="block rounded-lg px-3 py-2 text-[11px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]"
                 >
                   Our Lakshya
                 </Link>
               </div>
             </div>
 
+            {/* Specialties with mega menu */}
             <div
               className="relative"
               onMouseEnter={openSpecialtiesMenu}
@@ -200,7 +205,7 @@ const Navbar = () => {
               >
                 Specialties
                 <span
-                  className={`text-[11px] transition-transform duration-300 ${isSpecialtiesMenuOpen ? 'rotate-180' : ''}`}
+                  className={`text-[8px] transition-transform duration-300 ${isSpecialtiesMenuOpen ? 'rotate-180' : ''}`}
                   aria-hidden="true"
                 >
                   ▼
@@ -208,16 +213,16 @@ const Navbar = () => {
               </button>
 
               <div
-                className={`absolute left-1/2 top-full z-50 mt-3 w-[min(94vw,980px)] -translate-x-1/2 overflow-hidden rounded-[22px] border border-[#E9D9DD] bg-white px-5 py-4 shadow-[0_24px_50px_rgba(21,62,76,0.14)] whitespace-normal transition-all duration-200 ${
+                className={`absolute left-1/2 top-full z-50 mt-2 w-[min(90vw,900px)] -translate-x-1/2 overflow-hidden rounded-[16px] border border-[#E9D9DD] bg-white px-4 py-3 shadow-[0_24px_50px_rgba(21,62,76,0.14)] whitespace-normal transition-all duration-200 ${
                   isSpecialtiesMenuOpen ? 'visible translate-y-0 opacity-100' : 'invisible translate-y-2 opacity-0'
                 }`}
                 onMouseEnter={openSpecialtiesMenu}
                 onMouseLeave={closeSpecialtiesMenu}
               >
-                <div className="grid gap-5 md:grid-cols-3">
+                <div className="grid gap-3 md:grid-cols-3">
                   {specialtiesMegaMenu.map((section) => (
                     <div key={section.heading} className="min-w-0">
-                      <h3 className="mb-2 border-l-4 border-[#AD3048] pl-2 text-[11px] font-black uppercase leading-tight tracking-[0.04em] text-[#194656] xl:text-xs">
+                      <h3 className="mb-1.5 border-l-4 border-[#AD3048] pl-2 text-[9px] font-black uppercase leading-tight tracking-[0.04em] text-[#AD3048] md:text-[10px]">
                         {section.heading}
                       </h3>
                       <div className="space-y-0.5">
@@ -226,9 +231,9 @@ const Navbar = () => {
                             key={item.slug}
                             to={`/specialties/${item.slug}`}
                             onClick={handleMenuItemClick}
-                            className="group flex items-start gap-2 rounded-lg px-2 py-1.5 text-[15px] font-medium text-[#1f2f35] transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                            className="group flex items-start gap-1.5 rounded-lg px-2 py-1.5 text-[11px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]"
                           >
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-[2px] bg-[#E8B6C0] group-hover:bg-[#AD3048]" aria-hidden="true" />
+                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-[1px] bg-[#E8B6C0] group-hover:bg-[#AD3048]" aria-hidden="true" />
                             <span>{item.label}</span>
                           </Link>
                         ))}
@@ -239,8 +244,9 @@ const Navbar = () => {
               </div>
             </div>
 
+            {/* Other menu items */}
             {primaryMenu
-              .filter((item) => item.path !== '/' && item.path !== '/specialties')
+              .filter((item) => item.path !== '/' && item.path !== '/specialties' && item.path !== '/about')
               .map((item) => (
                 <NavLink key={item.path} to={item.path} className={routeLinkClass} onClick={handleMenuItemClick}>
                   {item.label}
@@ -248,29 +254,31 @@ const Navbar = () => {
               ))}
           </nav>
 
+          {/* Call button (768px+) */}
           <a
             href="tel:0522-4232333"
-            className="hidden shrink-0 rounded-full bg-[#AD3048] px-3 py-2 text-[12px] font-bold text-white shadow-[0_14px_30px_rgba(173,48,72,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#194656] hover:shadow-[0_18px_36px_rgba(25,70,86,0.25)] 2xl:inline-flex 2xl:px-4 2xl:py-2.5 2xl:text-[14px]"
+            className="hidden shrink-0 rounded-full bg-[#AD3048] px-3 py-1.5 text-[11px] font-bold text-white shadow-[0_14px_30px_rgba(173,48,72,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#194656] hover:shadow-[0_18px_36px_rgba(25,70,86,0.25)] lg:inline-flex lg:px-3.5 lg:py-2 lg:text-[12px] xl:px-4 xl:text-[13px]"
           >
             Call Us
           </a>
         </div>
 
+        {/* Mobile: Compact Specialties dropdown (320px - 767px) */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${isCompactSpecialtiesOpen ? 'max-h-[48vh] pt-2' : 'max-h-0'}`}
+          className={`md:hidden overflow-hidden transition-all duration-300 ${isCompactSpecialtiesOpen ? 'max-h-[50vh] pt-2' : 'max-h-0'}`}
         >
-          <div className="rounded-2xl border border-[#E9D9DD] bg-white p-2 shadow-[0_14px_30px_rgba(21,62,76,0.08)]">
-            <div className="max-h-[44vh] overflow-y-auto pr-1">
+          <div className="rounded-lg border border-[#E9D9DD] bg-white p-2 shadow-[0_8px_16px_rgba(21,62,76,0.08)]">
+            <div className="max-h-[48vh] overflow-y-auto pr-1">
               {specialtiesMegaMenu.map((section) => (
                 <div key={section.heading} className="px-2 py-1">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[#194656]">{section.heading}</p>
+                  <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.08em] text-[#AD3048]">{section.heading}</p>
                   <div className="space-y-0.5">
                     {section.items.map((item) => (
                       <Link
                         key={item.slug}
                         to={`/specialties/${item.slug}`}
                         onClick={handleMenuItemClick}
-                        className="block rounded-lg px-2 py-1.5 text-[12px] font-medium text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                        className="block rounded-lg px-2 py-1.5 text-[11px] font-medium text-[#AD3048] transition hover:bg-[#FDF2F2]"
                       >
                         {item.label}
                       </Link>
@@ -282,30 +290,31 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile: Full menu (320px - 767px) */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-[calc(100vh-110px)] overflow-y-auto pt-3' : 'max-h-0'}`}
+          className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-[calc(100vh-110px)] overflow-y-auto pt-2' : 'max-h-0'}`}
         >
-          <nav className="rounded-2xl border border-[#E9D9DD] bg-white p-2 shadow-[0_14px_30px_rgba(21,62,76,0.08)]">
-            <NavLink to="/" end onClick={handleMenuItemClick} className="block rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]">
+          <nav className="rounded-lg border border-[#E9D9DD] bg-white p-2 shadow-[0_8px_16px_rgba(21,62,76,0.08)]">
+            <NavLink to="/" end onClick={handleMenuItemClick} className="block rounded-lg px-3 py-2.5 text-[12px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]">
               Home
             </NavLink>
-            <Link to="/about" onClick={handleMenuItemClick} className="block rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]">
+            <Link to="/about" onClick={handleMenuItemClick} className="block rounded-lg px-3 py-2.5 text-[12px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]">
               About Us
             </Link>
-            <Link to="/about#our-founders" onClick={handleMenuItemClick} className="block rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]">
+            <Link to="/about#our-founders" onClick={handleMenuItemClick} className="block rounded-lg px-3 py-2.5 text-[12px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]">
               Our Founders
             </Link>
-            <Link to="/about#project-umeed" onClick={handleMenuItemClick} className="block rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]">
+            <Link to="/about#project-umeed" onClick={handleMenuItemClick} className="block rounded-lg px-3 py-2.5 text-[12px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]">
               Project Ummeed by Sanjivni
             </Link>
-            <Link to="/about#our-lakshya" onClick={handleMenuItemClick} className="block rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]">
+            <Link to="/about#our-lakshya" onClick={handleMenuItemClick} className="block rounded-lg px-3 py-2.5 text-[12px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]">
               Our Lakshya
             </Link>
 
             <button
               type="button"
               onClick={() => setIsMobileSpecialtiesOpen((value) => !value)}
-              className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+              className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-[12px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]"
             >
               <span>Specialties</span>
               <span className={`text-xs transition-transform ${isMobileSpecialtiesOpen ? 'rotate-180' : ''}`}>▼</span>
@@ -313,15 +322,15 @@ const Navbar = () => {
 
             <div className={`overflow-hidden transition-all duration-300 ${isMobileSpecialtiesOpen ? 'max-h-[60vh] overflow-y-auto pb-1' : 'max-h-0'}`}>
               {specialtiesMegaMenu.map((section) => (
-                <div key={section.heading} className="px-4 py-1">
-                  <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#194656]">{section.heading}</p>
+                <div key={section.heading} className="px-3 py-1">
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[#AD3048]">{section.heading}</p>
                   <div className="space-y-0.5">
                     {section.items.map((item) => (
                       <Link
                         key={item.slug}
                         to={`/specialties/${item.slug}`}
                         onClick={handleMenuItemClick}
-                        className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                        className="block rounded-lg px-3 py-1.5 text-[11px] font-medium text-[#AD3048] transition hover:bg-[#FDF2F2]"
                       >
                         {item.label}
                       </Link>
@@ -332,17 +341,24 @@ const Navbar = () => {
             </div>
 
             {primaryMenu
-              .filter((item) => item.path !== '/' && item.path !== '/specialties')
+              .filter((item) => item.path !== '/' && item.path !== '/specialties' && item.path !== '/about')
               .map((item) => (
                 <NavLink
                   key={item.path}
                   to={item.path}
                   onClick={handleMenuItemClick}
-                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-gray-700 transition hover:bg-[#FDF2F2] hover:text-[#AD3048]"
+                  className="block rounded-lg px-3 py-2.5 text-[12px] font-semibold text-[#AD3048] transition hover:bg-[#FDF2F2]"
                 >
                   {item.label}
                 </NavLink>
               ))}
+
+            <a
+              href="tel:0522-4232333"
+              className="mt-2 block rounded-full bg-[#AD3048] px-3 py-2.5 text-center text-[12px] font-bold text-white shadow-[0_14px_30px_rgba(173,48,72,0.22)] transition hover:bg-[#194656]"
+            >
+              Call Us
+            </a>
           </nav>
         </div>
       </div>

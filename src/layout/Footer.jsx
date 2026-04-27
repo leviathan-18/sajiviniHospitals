@@ -1,11 +1,10 @@
-import React from 'react';
 import logoImage from '../images/build/logo.png';
 
 const Footer = () => (
-  <footer id="contact" className="bg-white pt-16 pb-8 border-t-8 border-[#AD3048]">
-    <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl">
+  <footer id="contact" className="border-t-8 border-[#AD3048] bg-white pb-8 pt-12 md:pt-16">
+    <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:gap-12">
       <div>
-        <img src={logoImage} alt="Sanjivini" className="h-16 mb-6" />
+        <img src={logoImage} alt="Sanjivini" className="mb-6 h-14 sm:h-16" />
         <div className="flex gap-3 mt-4">
           <span className="w-8 h-8 bg-[#F37D79] rounded-full"></span>
           <span className="w-8 h-8 bg-[#F37D79] rounded-full"></span>
@@ -36,7 +35,7 @@ const Footer = () => (
         </form>
       </div>
     </div>
-    <p className="text-center text-xs text-gray-400 mt-16">Copyright © 2026 Sanjivini Hospital. All Rights Reserved.</p>
+    <p className="mt-12 px-4 text-center text-xs text-gray-400 md:mt-16">Copyright © 2026 Sanjivini Hospital. All Rights Reserved.</p>
   </footer>
 );
 

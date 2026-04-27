@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const CounterNumber = ({ value, duration = 1400 }) => {
   const [count, setCount] = useState(0);
@@ -38,28 +38,28 @@ const CounterNumber = ({ value, duration = 1400 }) => {
 
 const ExcellenceStats = () => {
   return (
-    <section className="w-full py-20 text-white" style={{
+    <section className="w-full py-14 text-white md:py-20" style={{
       backgroundImage: "linear-gradient(rgba(25,70,86,0.55), rgba(173,48,72,0.45)), url('https://sanjivinihospitals.com/wp-content/uploads/2022/07/medicine-capsules-global-health-with-geometric-pattern-digital-remix-scaled.jpg')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }}>
-      <div className="container mx-auto px-6 max-w-6xl text-center">
-        <h2 className="inline-block px-6 py-2 text-3xl md:text-5xl font-serif uppercase text-white tracking-wide">
+      <div className="container mx-auto max-w-6xl px-4 text-center sm:px-6">
+        <h2 className="inline-block px-2 py-2 text-2xl font-serif uppercase tracking-wide text-white sm:px-4 md:px-6 md:text-5xl">
           Excellence And Innovation At Heart
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
+        <div className="mt-10 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-10">
           <div>
-            <h3 className="text-6xl font-bold text-[#F3F8FB]">
+            <h3 className="text-4xl font-bold text-[#F3F8FB] sm:text-5xl md:text-6xl">
               <CounterNumber value={25} />+
             </h3>
-            <p className="text-2xl font-semibold mt-3">Years Of Excellence</p>
+            <p className="mt-3 text-xl font-semibold sm:text-2xl">Years Of Excellence</p>
           </div>
           <div>
-            <h3 className="text-6xl font-bold text-[#F3F8FB]">
+            <h3 className="text-4xl font-bold text-[#F3F8FB] sm:text-5xl md:text-6xl">
               <CounterNumber value={100000} />+
             </h3>
-            <p className="text-2xl font-semibold mt-3">Happy Patients</p>
+            <p className="mt-3 text-xl font-semibold sm:text-2xl">Happy Patients</p>
           </div>
         </div>
       </div>

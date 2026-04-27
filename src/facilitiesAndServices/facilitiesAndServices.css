@@ -479,6 +479,15 @@
   box-shadow: 0 12px 30px rgba(243, 125, 121, 0.4);
 }
 
+@media (min-width: 1400px) {
+  .facilities-hero,
+  .facilities-intro,
+  .facility-section,
+  .facilities-cta {
+    max-width: 1360px;
+  }
+}
+
 /* Animations */
 @keyframes fadeUp {
   from {
@@ -538,13 +547,47 @@
 }
 
 @media (max-width: 768px) {
+  .facilities-hero-inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    background-position: center;
+  }
+
+  .facilities-hero-copy {
+    padding: 28px 22px 22px;
+  }
+
+  .facilities-hero-button {
+    min-width: 100%;
+  }
+
   .facility-section {
+    grid-template-columns: 1fr;
     margin: 24px auto;
     gap: 16px;
   }
 
+  .facility-section.image-left,
+  .facility-section.image-right {
+    grid-template-columns: 1fr;
+  }
+
+  .facility-section.image-left .facility-image-wrapper,
+  .facility-section.image-right .facility-image-wrapper {
+    order: 0;
+  }
+
+  .facility-section.image-left .facility-content-wrapper,
+  .facility-section.image-right .facility-content-wrapper {
+    order: 1;
+  }
+
   .facility-image-wrapper {
     height: 280px;
+  }
+
+  .facility-content-wrapper {
+    min-height: auto;
   }
 
   .facility-content {
@@ -575,52 +618,19 @@
 
 @media (max-width: 640px) {
   .facilities-hero-inner {
-    grid-template-columns: 1fr;
-    min-height: auto;
     border-radius: 24px;
-    background-position: center;
   }
 
   .facilities-hero-copy {
-    padding: 32px 24px 24px;
+    padding: 26px 20px 20px;
   }
 
   .facilities-hero-copy h1 {
     max-width: none;
   }
 
-  .facilities-hero-button {
-    min-width: 100%;
-  }
-
-  .facility-section,
-  .facility-section.image-left {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .facility-section.image-left .facility-image-wrapper {
-    order: 0;
-  }
-
-  .facility-section.image-right .facility-image-wrapper {
-    order: 0;
-  }
-
-  .facility-section.image-left .facility-content-wrapper {
-    order: 1;
-  }
-
-  .facility-section.image-right .facility-content-wrapper {
-    order: 1;
-  }
-
   .facility-image-wrapper {
     height: 240px;
-  }
-
-  .facility-content-wrapper {
-    min-height: auto;
   }
 
   .facilities-hero {

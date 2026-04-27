@@ -10,7 +10,7 @@ const ProjectUmmeed = () => {
     <section className="about-shell py-10 md:py-14">
       <div className={`grid gap-8 lg:gap-10 items-stretch ${expanded ? 'grid-cols-1' : 'grid-cols-1 lg:grid-cols-[6fr_4fr]'}`}>
         <div className="rounded-[30px] border border-[#ead7db] bg-[#fffdfd] p-7 md:p-10 shadow-[0_18px_40px_rgba(21,62,76,0.07)]">
-          <div className="flex items-start justify-between gap-4 mb-6">
+          <div className="mb-6 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-start sm:gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.28em] text-[#AD3048] font-bold">Social care program</p>
               <h2 className="mt-2 text-[#194656] font-serif text-2xl md:text-3xl uppercase tracking-[0.2em]">
@@ -20,7 +20,7 @@ const ProjectUmmeed = () => {
             <button
               type="button"
               onClick={() => setExpanded((value) => !value)}
-              className="shrink-0 rounded-full border border-[#AD3048] px-4 py-2 text-sm font-bold text-[#AD3048] transition hover:bg-[#AD3048] hover:text-white"
+              className="w-full rounded-full border border-[#AD3048] px-4 py-2 text-sm font-bold text-[#AD3048] transition hover:bg-[#AD3048] hover:text-white sm:w-auto sm:shrink-0"
             >
               {expanded ? 'Show less' : 'Show more'}
             </button>

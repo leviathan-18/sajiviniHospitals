@@ -1,4 +1,3 @@
-import React from 'react';
 
 const HealthHub = () => {
   // 8 Videos ka data array

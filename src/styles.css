@@ -854,7 +854,6 @@ h3 {
   padding: 0 20px;
   position: relative;
   isolation: isolate;
-  overflow-x: clip;
 }
 
 .contact-page::before,
@@ -1078,6 +1077,8 @@ h3 {
 }
 
 .contact-map-frame {
+  width: 100%;
+  height: 450px;
   border-radius: 16px;
   box-shadow: 0 12px 30px rgba(25, 69, 85, 0.15);
 }
@@ -1287,6 +1288,26 @@ h3 {
   margin-top: 60px;
 }
 
+@media (min-width: 1400px) {
+  .hero,
+  .quick-stats,
+  .services-grid,
+  .contact-hero,
+  .chronicles-hero,
+  .empanelment-page {
+    max-width: 1360px;
+  }
+
+  .content-page {
+    max-width: 1120px;
+  }
+
+  .contact-info-section,
+  .contact-page-compact {
+    max-width: 1120px;
+  }
+}
+
 @media (max-width: 1120px) {
   .nav-links {
     gap: 14px;
@@ -1305,9 +1326,21 @@ h3 {
   .contact-info-grid {
     grid-template-columns: 1fr;
   }
+
+  .empanelment-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .chronicles-hero-inner {
+    min-height: auto;
+  }
+
+  .chronicles-hero-copy {
+    padding: 34px 30px;
+  }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 940px) {
   .menu-toggle {
     display: block;
   }
@@ -1369,6 +1402,36 @@ h3 {
 
   .empanelment-page {
     margin-top: 24px;
+  }
+
+  .chronicles-hero {
+    padding: 24px 14px 8px;
+  }
+
+  .chronicles-hero-copy h1 {
+    max-width: none;
+  }
+
+  .chronicles-hero-actions {
+    margin-top: 22px;
+    gap: 10px;
+  }
+
+  .chronicles-hero-button {
+    min-height: 50px;
+    min-width: 100%;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .enquiry-form-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1435,6 +1498,27 @@ h3 {
   .logo-tile {
     min-height: 104px;
   }
+
+  .contact-action-card,
+  .contact-action-button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .contact-map {
+    margin: 28px 0;
+    padding: 24px 12px;
+  }
+
+  .contact-map h2 {
+    margin-bottom: 18px;
+    font-size: 1.45rem;
+  }
+
+  .contact-map-frame {
+    height: 300px;
+  }
 }
 @tailwind base;
 @tailwind components;
@@ -1477,6 +1561,27 @@ body {
 
 .overflow-y-scroll::-webkit-scrollbar-thumb:hover {
   background: #194656;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .nav-scroll-tablet {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .nav-scroll-tablet::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .nav-scroll-tablet {
+    justify-content: center;
+    overflow: visible;
+  }
 }
 
 /* Specialties - Shared Page System */

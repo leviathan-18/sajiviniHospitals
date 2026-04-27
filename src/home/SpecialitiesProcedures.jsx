@@ -34,12 +34,12 @@ const SpecialitiesProcedures = () => {
       <div className="container mx-auto max-w-7xl px-3 sm:px-4">
         
         {/* Tab Header Section */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 items-stretch">
+        <div className="grid w-full grid-cols-1 items-stretch gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
           {/* Specialties Button */}
           <button 
             onClick={() => setActiveTab('specialties')}
             style={{ borderColor: '#efbcc5', color: activeTab === 'specialties' ? '#AD3048' : '#194656' }}
-            className={`min-w-[150px] sm:min-w-[220px] px-5 py-3 sm:px-8 sm:py-4 text-base sm:text-xl md:text-2xl font-serif uppercase tracking-wide border-t border-l border-r transition-all duration-300 relative ${
+            className={`w-full sm:min-w-[220px] sm:w-auto px-5 py-3 sm:px-8 sm:py-4 text-sm sm:text-xl md:text-2xl font-serif uppercase tracking-wide border-t border-l border-r transition-all duration-300 relative ${
               activeTab === 'specialties' ? 'bg-white z-20 -mb-[1.5px] shadow-sm' : 'bg-transparent opacity-60'
             }`}
           >
@@ -50,7 +50,7 @@ const SpecialitiesProcedures = () => {
           <button 
             onClick={() => setActiveTab('procedures')}
             style={{ borderColor: '#efbcc5', color: activeTab === 'procedures' ? '#AD3048' : '#194656' }}
-            className={`min-w-[150px] sm:min-w-[220px] px-5 py-3 sm:px-8 sm:py-4 text-base sm:text-xl md:text-2xl font-serif uppercase tracking-wide border-t border-l border-r transition-all duration-300 relative ${
+            className={`w-full sm:min-w-[220px] sm:w-auto px-5 py-3 sm:px-8 sm:py-4 text-sm sm:text-xl md:text-2xl font-serif uppercase tracking-wide border-t border-l border-r transition-all duration-300 relative ${
               activeTab === 'procedures' ? 'bg-white z-20 -mb-[1.5px] shadow-sm' : 'bg-transparent opacity-60'
             }`}
           >

@@ -46,6 +46,17 @@ body {
   margin: 0 auto;
 }
 
+@media (min-width: 1400px) {
+  .about-shell {
+    width: min(1320px, calc(100% - 56px));
+  }
+
+  .about-founders-card,
+  .about-footer-card {
+    border-radius: 36px;
+  }
+}
+
 /* --- Navigation --- */
 .about-navbar {
   position: sticky;
@@ -496,9 +507,25 @@ body {
 }
 
 @media (max-width: 768px) {
+  .about-shell {
+    width: min(1200px, calc(100% - 24px));
+  }
+
   .about-navbar-inner {
     flex-direction: column;
     padding: 20px 0;
+  }
+
+  .about-nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .about-nav-link,
+  .about-nav-button {
+    padding: 8px 12px;
+    font-size: 0.84rem;
   }
   
   .about-hero-intro {

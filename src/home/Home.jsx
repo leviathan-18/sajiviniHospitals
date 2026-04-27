@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import buildingImage from '../images/assets/sanjivini-hospital-building.jpg';
+import cleanCareImage from '../images/assets/clean care.jpeg';
 import foundersImage from '../images/assets/founders_photo.jpg';
 import homePageImage from '../images/assets/Home page img 1.jpeg';
-import facilityImage from '../images/assets/sanjivini-hospital-img4.jpg';
 import immediateHelpImage from '../images/assets/immidiate help.png';
+import buildingImage from '../images/assets/sanjivini-hospital-building.jpg';
+import facilityImage from '../images/assets/sanjivini-hospital-img4.jpg';
 import hospitalViewImage from '../images/assets/susanjeevani-hospital img 3.jpeg';
-import cleanCareImage from '../images/assets/clean care.jpeg';
 
 
 const slides = [
@@ -162,24 +162,24 @@ const Home = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(173,48,72,0.08),_transparent_26%),radial-gradient(circle_at_bottom_right,_rgba(251,176,59,0.12),_transparent_22%)]" />
         <div className="container relative mx-auto max-w-7xl px-4">
           <div className="grid items-stretch gap-4 lg:grid-cols-[0.86fr_1.14fr]">
-            <div className="rounded-[28px] bg-[#AD3048] p-5 md:p-6 text-white shadow-[0_18px_50px_rgba(173,48,72,0.14)]">
+            <div className="rounded-[28px] bg-[#AD3048] p-4 text-white shadow-[0_18px_50px_rgba(173,48,72,0.14)] sm:p-5 md:p-6">
               <span className="inline-flex items-center rounded-full bg-[#FBB03B] px-4 py-1 text-xs font-bold uppercase tracking-[0.22em] text-[#194656]">
                 24x7 Emergency
               </span>
-              <h2 className="mt-3 text-2xl font-black leading-tight md:text-3xl">
+              <h2 className="mt-3 text-[1.35rem] font-black leading-tight sm:text-2xl md:text-3xl">
                 Emergency care, fast and calm
               </h2>
-              <p className="mt-2 max-w-md text-sm leading-6 text-white/84">
+              <p className="mt-2 max-w-md text-[13px] leading-5 text-white/84 sm:text-sm sm:leading-6">
                 Immediate support with a patient-first approach, designed to feel reassuring instead of crowded.
               </p>
-              <div className="mt-4 grid grid-cols-2 gap-2">
-                <div className="rounded-2xl border border-white/12 bg-white/10 p-3 backdrop-blur-sm">
-                  <p className="text-2xl font-black text-[#FBB03B]">24/7</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/75">Care access</p>
+              <div className="mt-4 grid grid-cols-1 gap-2 min-[380px]:grid-cols-2">
+                <div className="rounded-2xl border border-white/12 bg-white/10 p-3 backdrop-blur-sm min-h-[112px]">
+                  <p className="mb-0 text-lg font-black text-[#FBB03B] sm:text-2xl">24/7</p>
+                  <p className="mb-0 mt-0 text-[11px] uppercase tracking-[0.12em] text-white/75 sm:text-xs sm:tracking-[0.18em]">Care access</p>
                 </div>
-                <div className="rounded-2xl border border-white/12 bg-white/10 p-3 backdrop-blur-sm">
-                  <p className="text-2xl font-black text-[#56B7C3]">Fast</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/75">Response</p>
+                <div className="rounded-2xl border border-white/12 bg-white/10 p-3 backdrop-blur-sm min-h-[112px]">
+                  <p className="mb-0 text-lg font-black text-[#56B7C3] sm:text-2xl">Fast</p>
+                  <p className="mb-0 mt-0 text-[11px] uppercase tracking-[0.12em] text-white/75 sm:text-xs sm:tracking-[0.18em]">Response</p>
                 </div>
               </div>
             </div>

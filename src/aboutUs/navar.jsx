@@ -31,7 +31,6 @@ const Navbar = () => {
   const [isSpecialtiesMenuOpen, setIsSpecialtiesMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSpecialtiesOpen, setIsMobileSpecialtiesOpen] = useState(false);
-  const [isCompactSpecialtiesOpen, setIsCompactSpecialtiesOpen] = useState(false);
   const [closeTimer, setCloseTimer] = useState(null);
 
   // Desktop nav link styling (768px+)
@@ -77,7 +76,6 @@ const Navbar = () => {
     setIsSpecialtiesMenuOpen(false);
     setIsMobileMenuOpen(false);
     setIsMobileSpecialtiesOpen(false);
-    setIsCompactSpecialtiesOpen(false);
   };
 
   const handleMenuItemClick = () => {
@@ -86,32 +84,12 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E9D9DD] bg-white/90 text-[rgb(173,48,72)] shadow-[0_10px_30px_rgba(21,62,76,0.08)] backdrop-blur-xl">
-      <div className="mx-auto w-full max-w-[1480px] px-3 py-3 sm:px-4 sm:py-3.5 md:px-5 md:py-3.5 lg:px-6 lg:py-4">
+      <div className="container mx-auto w-full max-w-7xl px-2 py-3 sm:px-4 sm:py-3.5 lg:px-4 lg:py-4">
         <div className="flex min-w-0 flex-nowrap items-center justify-between gap-2 sm:gap-3 md:gap-3 lg:gap-4 xl:gap-5">
           {/* Logo */}
           <Link to="/" className="shrink-0" onClick={handleMenuItemClick}>
-            <img src={logoImage} alt="Sanjivini Logo" className="h-8 max-w-[88px] object-contain sm:h-9 md:h-9 lg:h-10 xl:h-11 2xl:h-12" />
+            <img src={logoImage} alt="Sanjivini Logo" className="h-10 max-w-[120px] object-contain sm:h-11 md:h-10 lg:h-11 xl:h-12 2xl:h-14" />
           </Link>
-
-          {/* Mobile: Compact buttons (320px - 767px) */}
-          <div className="flex min-w-0 items-center gap-1 sm:gap-1.5 md:hidden">
-            <button
-              type="button"
-              onClick={() => setIsCompactSpecialtiesOpen((value) => !value)}
-              className="inline-flex shrink-0 items-center gap-0.5 rounded-full border border-[#efbcc5] bg-[#FDF2F2] px-1.5 py-1.5 text-[10px] font-bold leading-none text-[#AD3048] whitespace-nowrap sm:px-2 sm:text-[11px]"
-            >
-              Specialities
-              <span className={`text-[7px] transition-transform ${isCompactSpecialtiesOpen ? 'rotate-180' : ''}`}>▼</span>
-            </button>
-
-            <Link
-              to="/about"
-              onClick={handleMenuItemClick}
-              className="inline-flex shrink-0 items-center gap-0.5 rounded-full border border-[#efbcc5] bg-[#FDF2F2] px-1.5 py-1.5 text-[10px] font-bold leading-none text-[#AD3048] whitespace-nowrap sm:px-2 sm:text-[11px]"
-            >
-              About Us
-            </Link>
-          </div>
 
           {/* Mobile: Hamburger (320px - 767px) */}
           <button
@@ -120,7 +98,6 @@ const Navbar = () => {
             aria-expanded={isMobileMenuOpen}
             onClick={() => {
               setIsMobileMenuOpen((current) => !current);
-              setIsCompactSpecialtiesOpen(false);
             }}
             className="ml-auto grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-[#E9D9DD] bg-white text-[rgb(173,48,72)] shadow-sm transition hover:bg-[#FDF2F2] sm:h-9 sm:w-9 md:hidden"
           >
@@ -261,33 +238,6 @@ const Navbar = () => {
           >
             Call Us
           </a>
-        </div>
-
-        {/* Mobile: Compact Specialties dropdown (320px - 767px) */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${isCompactSpecialtiesOpen ? 'max-h-[50vh] pt-2' : 'max-h-0'}`}
-        >
-          <div className="rounded-lg border border-[#E9D9DD] bg-white p-2 shadow-[0_8px_16px_rgba(21,62,76,0.08)]">
-            <div className="max-h-[48vh] overflow-y-auto pr-1">
-              {specialtiesMegaMenu.map((section) => (
-                <div key={section.heading} className="px-2 py-1">
-                  <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.08em] text-[#AD3048]">{section.heading}</p>
-                  <div className="space-y-0.5">
-                    {section.items.map((item) => (
-                      <Link
-                        key={item.slug}
-                        to={`/specialties/${item.slug}`}
-                        onClick={handleMenuItemClick}
-                        className="block rounded-lg px-2 py-1.5 text-[11px] font-medium text-[#AD3048] transition hover:bg-[#FDF2F2]"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Mobile: Full menu (320px - 767px) */}
